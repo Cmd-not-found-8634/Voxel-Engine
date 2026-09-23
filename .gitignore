@@ -1,0 +1,6 @@
+tests/
+temp/
+*.exe
+*.o
+TODO
+.vscode/

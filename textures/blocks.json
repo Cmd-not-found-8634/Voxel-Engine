@@ -1,0 +1,137 @@
+{
+  "air": {
+    "geometry": "cube",
+    "textures": {
+      "back": "missing_tile",
+      "front": "missing_tile",
+      "left": "missing_tile",
+      "right": "missing_tile",
+      "bottom": "missing_tile",
+      "top": "missing_tile"
+    },
+    "properties": {
+      "solid": false,
+      "transparent" : true
+    }
+  },
+  "grass": {
+    "geometry": "cube",
+    "textures": {
+      "back": "grass_side",
+      "front": "grass_side",
+      "left": "grass_side",
+      "right": "grass_side",
+      "bottom": "dirt",
+      "top": "grass_top"
+    },
+    "properties": {
+      "solid": true,
+      "transparent" : false
+    }
+  },
+  "dirt": {
+    "geometry": "cube",
+    "textures": {
+      "back": "dirt",
+      "front": "dirt",
+      "left": "dirt",
+      "right": "dirt",
+      "bottom": "dirt",
+      "top": "dirt"
+    },
+    "properties": {
+      "solid": true,
+      "transparent" : false
+    }
+  },
+  "stone": {
+    "geometry": "cube",
+    "textures": {
+      "back": "stone",
+      "front": "stone",
+      "left": "stone",
+      "right": "stone",
+      "bottom": "stone",
+      "top": "stone"
+    },
+    "properties": {
+      "solid": true,
+      "transparent" : false
+    }
+  },
+  "oak_plank": {
+    "geometry": "cube",
+    "textures": {
+      "back": "oak_plank",
+      "front": "oak_plank",
+      "left": "oak_plank",
+      "right": "oak_plank",
+      "bottom": "oak_plank",
+      "top": "oak_plank"
+    },
+    "properties": {
+      "solid": true,
+      "transparent" : false
+    }
+  },
+  "oak_log": {
+    "geometry": "cube",
+    "textures": {
+      "back": "oak_log_side",
+      "front": "oak_log_side",
+      "left": "oak_log_side",
+      "right": "oak_log_side",
+      "bottom": "oak_log_top",
+      "top": "oak_log_top"
+    },
+    "properties": {
+      "solid": true,
+      "transparent" : false
+    }
+  },
+  "sand": {
+    "geometry": "cube",
+    "textures": {
+      "back": "sand",
+      "front": "sand",
+      "left": "sand",
+      "right": "sand",
+      "bottom": "sand",
+      "top": "sand"
+    },
+    "properties": {
+      "solid": true,
+      "transparent" : false
+    }
+  },
+  "water": {
+    "geometry": "cube",
+    "textures": {
+      "back": "water",
+      "front": "water",
+      "left": "water",
+      "right": "water",
+      "bottom": "water",
+      "top": "water"
+    },
+    "properties": {
+      "solid": false,
+      "transparent" : true
+    }
+  },
+  "snow": {
+    "geometry": "cube",
+    "textures": {
+      "back": "snow",
+      "front": "snow",
+      "left": "snow",
+      "right": "snow",
+      "bottom": "snow",
+      "top": "snow"
+    },
+    "properties": {
+      "solid": true,
+      "transparent" : false
+    }
+  }
+}
