@@ -5,22 +5,23 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include <stb_image.h>
+#include <utils/stb_image.h>
+#include <utils/json.hpp>
+#include <utils/jsonparse.hpp>
 
 #include <iostream>
 #include <fstream>
-#include <json.hpp>
 #include <string>
 #include <vector>
 #include <array>
 
-#include <shader.hpp>
-#include <camera.hpp>
-#include <texture.cpp>
-#include <cube.hpp>
-#include <parse_shader.hpp>
-#include <terrain_generator.hpp>
-#include <mesh_builder.hpp>
+#include <shader/shader.hpp>
+#include <camera/camera.hpp>
+#include <texture/texture.cpp>
+#include <world/cube.hpp>
+#include <shader/parse_shader.hpp>
+#include <world/terrain_generator.hpp>
+#include <world/mesh_builder.hpp>
 
 float lastFrame = 0.0f;
 
@@ -121,14 +122,14 @@ int main(){
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     /* SHADERS */
-    const char* vs = parse_shader("src/vertex_shader.glsl");
-    const char* fs = parse_shader("src/fragment_shader.glsl");
+    const char* vs = parse_shader("include/shader/vertex_shader.glsl");
+    const char* fs = parse_shader("include/shader/fragment_shader.glsl");
 
     Shader shader(vs,fs);
 
     Texture texture("textures/textures.png");
 
-    nlohmann::json blockRegistry = parse_json("textures/block_registry.json");
+    nlohmann::json blockRegistry = parse_json("include/world/block_registry.json");
 
     const std::uint64_t worldSeed = 123456789ULL;
 

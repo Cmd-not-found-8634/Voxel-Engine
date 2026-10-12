@@ -1,6 +1,6 @@
 #pragma once
 
-#include "prng.hpp"
+#include <PRNG/prng.hpp>
 
 #include <algorithm>
 #include <cmath>

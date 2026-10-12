@@ -1,7 +1,7 @@
 #include <iostream>
 #include <iomanip>
 
-#include <prng.hpp>
+#include <PRNG/prng.hpp>S
 
 int main()
 {

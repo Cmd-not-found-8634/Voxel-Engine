@@ -1,4 +1,4 @@
-#include "terrain_generator.hpp"
+#include <world/terrain_generator.hpp>
 
 #include <iostream>
 

@@ -5,9 +5,9 @@
 #include <map>
 #include <string>
 
-#include <jsonparse.hpp>
+#include <utils/jsonparse.hpp>
 
-nlohmann::json geometry = parse_json("textures/geometry.json");
+nlohmann::json geometry = parse_json("include/world/geometry.json");
 
 class Geometry
 {

@@ -5,11 +5,11 @@
 #include <map>
 #include <string>
 
-#include <jsonparse.hpp>
-#include <geometry.hpp>
+#include <utils/jsonparse.hpp>
+#include <world/geometry.hpp>
 
-nlohmann::json blocks = parse_json("textures/blocks.json");
-nlohmann::json minecraft_tiles = parse_json("textures/minecraft_tiles.json");
+nlohmann::json blocks = parse_json("include/world/blocks.json");
+nlohmann::json minecraft_tiles = parse_json("include/world/minecraft_tiles.json");
 
 class Block
 {

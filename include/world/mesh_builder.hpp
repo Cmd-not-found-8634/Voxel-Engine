@@ -9,7 +9,7 @@
 
 #include <vector>
 
-#include <cube.hpp>
+#include <world/cube.hpp>
 
 class MeshBuilder
 {
