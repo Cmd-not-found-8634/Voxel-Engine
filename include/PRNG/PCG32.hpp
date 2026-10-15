@@ -1,7 +1,7 @@
 #pragma once
 
 #include <cstdint>
-#include <prng_utils.hpp>
+#include <PRNG/prng_utils.hpp>
 
 class PCG32{
 private:
@@ -9,15 +9,15 @@ private:
     static constexpr std::uint64_t a=6364136223846793005ULL;
     static constexpr std::uint64_t a_inv=13877824140714322085ULL;
 public:
+    PCG32(std::uint64_t seed, std::uint64_t stream){
+        reset(seed, stream);
+    }
     void reset(std::uint64_t seed, std::uint64_t stream){
         state=0;
         inc=(stream<<1)|1;
         state=state*a+inc;
         state+=seed;
         state=state*a+inc;
-    }
-    PCG32(std::uint64_t seed, std::uint64_t stream){
-        reset(seed, stream);
     }
     std::uint32_t next(){
         std::uint32_t result=XSH_RR(state);
