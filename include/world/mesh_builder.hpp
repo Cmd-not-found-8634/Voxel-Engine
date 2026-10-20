@@ -9,7 +9,7 @@
 
 #include <vector>
 
-#include <world/cube.hpp>
+#include <world/block.hpp>
 
 class MeshBuilder
 {
@@ -42,12 +42,14 @@ int cnt = 0;
 std::vector<float> vertices;
 std::vector<unsigned int> indices;
 
-void build_mesh(std::vector<Block>& chunk, int S, int H){
+void build_mesh(std::vector<block_str>& chunk, int S, int H){
 
     int chunk_volume = static_cast<int>(chunk.size());
 
     for(int i = 0 ; i < chunk_volume ; i++){
-        const Block& blk = chunk[i];
+        const Block& blk = get_block(chunk[i].id);
+
+        if(!blk.render) continue;
 
         std::array<int,3> pos = index_2_position(i, S, H);
 
@@ -62,18 +64,20 @@ void build_mesh(std::vector<Block>& chunk, int S, int H){
 
             if(nx >= 0 && nx < S && ny >= 0 && ny < H && nz >= 0 && nz < S ){
                     int adj_idx = position_2_index({nx, ny, nz}, S, H);
+                    Block& adj_blk = get_block(chunk[adj_idx].id);
 
                     //!chunk[adj_idx].transparent && is_overlap(chunk, i, j, adj_idx, j^1)
-                    if(!chunk[adj_idx].transparent) continue;
+                    if(!adj_blk.transparent) continue;
+                    if(adj_blk.transparent && adj_blk.id==blk.id) continue;
             }
 
             for(int k = 0; k < 4; k++){
                 const auto& p = gmt.points[j][k];
 
                 // Position
-                vertices.push_back(p[0] + blk.position[0]);
-                vertices.push_back(p[1] + blk.position[1]);
-                vertices.push_back(p[2] + blk.position[2]);
+                vertices.push_back(p[0] + chunk[i].position[0]);
+                vertices.push_back(p[1] + chunk[i].position[1]);
+                vertices.push_back(p[2] + chunk[i].position[2]);
 
                 // Normal
                 vertices.insert(vertices.end(), gmt.normals[j].begin(), gmt.normals[j].end());
@@ -89,7 +93,7 @@ void build_mesh(std::vector<Block>& chunk, int S, int H){
     }
 }
 
-MeshBuilder(std::vector<Block>& chunk, int S, int H){
+MeshBuilder(std::vector<block_str>& chunk, int S, int H){
     build_mesh(chunk, S, H);
 
     glGenVertexArrays(1,&VAO);

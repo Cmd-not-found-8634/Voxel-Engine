@@ -1,6 +1,12 @@
 {
   "//" : "view https://minecraft.fandom.com/wiki/List_of_block_textures for list of textures",
 
+  "air": {
+    "x0": 0.0,
+    "y0": 0.4375,
+    "x1": 0.0,
+    "y1": 0.4375
+  },
   "grass_top": {
     "x0": 0.0,
     "y0": 0.0,

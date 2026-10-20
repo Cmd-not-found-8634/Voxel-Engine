@@ -1,20 +1,23 @@
 {
   "air": {
+    "id": 0,
     "geometry": "cube",
     "textures": {
-      "back": "missing_tile",
-      "front": "missing_tile",
-      "left": "missing_tile",
-      "right": "missing_tile",
-      "bottom": "missing_tile",
-      "top": "missing_tile"
+      "back": "air",
+      "front": "air",
+      "left": "air",
+      "right": "air",
+      "bottom": "air",
+      "top": "air"
     },
     "properties": {
       "solid": false,
-      "transparent" : true
+      "transparent" : true,
+      "render": false
     }
   },
   "grass": {
+    "id": 3,
     "geometry": "cube",
     "textures": {
       "back": "grass_side",
@@ -26,10 +29,12 @@
     },
     "properties": {
       "solid": true,
-      "transparent" : false
+      "transparent" : false,
+      "render": true
     }
   },
   "dirt": {
+    "id": 2,
     "geometry": "cube",
     "textures": {
       "back": "dirt",
@@ -41,10 +46,12 @@
     },
     "properties": {
       "solid": true,
-      "transparent" : false
+      "transparent" : false,
+      "render": true
     }
   },
   "stone": {
+    "id": 1,
     "geometry": "cube",
     "textures": {
       "back": "stone",
@@ -56,10 +63,12 @@
     },
     "properties": {
       "solid": true,
-      "transparent" : false
+      "transparent" : false,
+      "render": true
     }
   },
   "oak_plank": {
+    "id": 8,
     "geometry": "cube",
     "textures": {
       "back": "oak_plank",
@@ -71,10 +80,12 @@
     },
     "properties": {
       "solid": true,
-      "transparent" : false
+      "transparent" : false,
+      "render": true
     }
   },
   "oak_log": {
+    "id": 7,
     "geometry": "cube",
     "textures": {
       "back": "oak_log_side",
@@ -86,10 +97,12 @@
     },
     "properties": {
       "solid": true,
-      "transparent" : false
+      "transparent" : false,
+      "render": true
     }
   },
   "sand": {
+    "id": 4,
     "geometry": "cube",
     "textures": {
       "back": "sand",
@@ -101,10 +114,12 @@
     },
     "properties": {
       "solid": true,
-      "transparent" : false
+      "transparent" : false,
+      "render": true
     }
   },
   "water": {
+    "id": 5,
     "geometry": "cube",
     "textures": {
       "back": "water",
@@ -116,10 +131,12 @@
     },
     "properties": {
       "solid": false,
-      "transparent" : true
+      "transparent" : true,
+      "render": true
     }
   },
   "snow": {
+    "id": 6,
     "geometry": "cube",
     "textures": {
       "back": "snow",
@@ -131,7 +148,8 @@
     },
     "properties": {
       "solid": true,
-      "transparent" : false
+      "transparent" : false,
+      "render": true
     }
   }
 }

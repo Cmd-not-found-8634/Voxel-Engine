@@ -18,9 +18,9 @@
 #include <shader/shader.hpp>
 #include <camera/camera.hpp>
 #include <texture/texture.cpp>
-#include <world/cube.hpp>
+#include <world/block.hpp>
 #include <shader/parse_shader.hpp>
-#include <world/terrain_generator.hpp>
+#include <world/terrain_generator_test.hpp>
 #include <world/mesh_builder.hpp>
 
 float lastFrame = 0.0f;
@@ -129,11 +129,9 @@ int main(){
 
     Texture texture("textures/textures.png");
 
-    nlohmann::json blockRegistry = parse_json("include/world/block_registry.json");
-
     const std::uint64_t worldSeed = 123456789ULL;
 
-    TerrainGenerator terrain(worldSeed);
+    terrain_generator_test terrain(worldSeed);
 
     int chunkX = -1, chunkZ = -1;
 
@@ -141,12 +139,12 @@ int main(){
 
     int chunk_volume = blocks.size();
 
-    std::vector<Block> chunk;
+    generate_block_list();
 
-    int S = 16;
+    std::vector<block_str> chunk;
+
+    int S = 256;
     int H = 64;
-
-    nlohmann::json registry = blockRegistry["registry_key"];
 
     for(int i = 0 ; i < chunk_volume ; i++){
         float x = static_cast<float>(chunkX*S + i/(H*S));
@@ -156,8 +154,7 @@ int main(){
 
         int block_id = static_cast<int>(blocks[i]);
 
-        std::string block = registry[block_id];
-        chunk.push_back(Block(pos, block));
+        chunk.push_back(block_str(pos, block_id));
     }
 
     MeshBuilder mesh_builder(chunk, S, H);
@@ -189,7 +186,7 @@ int main(){
         shader.setMat4("projection",projection);
 
         shader.setVec3("viewPos",camera.Position);
-        shader.setVec3("lightPos",glm::vec3(1.2,1,2));
+        shader.setVec3("lightPos",glm::vec3(0,100,0));
 
         texture.bind();
 

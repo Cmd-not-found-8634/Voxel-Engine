@@ -9,8 +9,7 @@
 
 nlohmann::json geometry = parse_json("include/world/geometry.json");
 
-class Geometry
-{
+class Geometry{
 
 public:
 

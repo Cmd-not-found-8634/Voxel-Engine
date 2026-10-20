@@ -1,6 +1,6 @@
 #pragma once
 
-#include <PRNG/prng.hpp>
+#include <PRNG/prng_utils.hpp>
 
 #include <algorithm>
 #include <cmath>
@@ -438,14 +438,14 @@ private:
             static_cast<u64>(z);
 
         const u64 a =
-            ReversiblePRNG64::mix(
+            mix(
                 ux +
                 0x9e3779b97f4a7c15ULL +
                 salt
             );
 
         const u64 b =
-            ReversiblePRNG64::mix(
+            mix(
                 uz +
                 0xbf58476d1ce4e5b9ULL +
                 salt * 3ULL
@@ -455,7 +455,7 @@ private:
         const u64 rotatedB =
             (b << 32) | (b >> 32);
 
-        return ReversiblePRNG64::mix(
+        return mix(
             seed ^
             a ^
             rotatedB ^
@@ -675,28 +675,28 @@ private:
             seed ^ salt;
 
         h ^=
-            ReversiblePRNG64::mix(
+            mix(
                 static_cast<u64>(x) +
                 0x9e3779b97f4a7c15ULL +
                 salt
             );
 
         h ^=
-            ReversiblePRNG64::mix(
+            mix(
                 static_cast<u64>(y) +
                 0xbf58476d1ce4e5b9ULL +
                 salt * 5ULL
             );
 
         h ^=
-            ReversiblePRNG64::mix(
+            mix(
                 static_cast<u64>(z) +
                 0x94d049bb133111ebULL +
                 salt * 7ULL
             );
 
         return
-            ReversiblePRNG64::mix(h);
+            mix(h);
     }
 
     static double random03(
